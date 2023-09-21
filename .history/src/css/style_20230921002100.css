@@ -166,7 +166,7 @@ button {
   width: 100%;
 }
 
-/* Start cart list card runstyles */
+/* Start cart list card styles */
 .cart-card {
   display: grid;
   grid-template-columns: 25% auto 15%;
