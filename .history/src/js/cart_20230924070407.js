@@ -1,7 +1,8 @@
 import { getLocalStorage } from "./utils.mjs";
 
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
+  const cartItems = getLocalStorage("so-cart") || [];
+  const existingItem = ca
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
