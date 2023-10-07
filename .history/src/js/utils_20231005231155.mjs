@@ -28,13 +28,16 @@ export function getParam(param) {
   return urlParams.get(param);
 }
 
-function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true) {
+function renderListWithTemplate(templateFn, parentElement, list, position = "afterbegin", clear = true
+  templateFn,
+  parentElement,
+  list,
+  position = "afterbegin",
+  clear = true
+) {
   if (clear) {
     parentElement.innerHTML = "";
   }
-
-  const htmlStringArray = list.map(item => templateFn(item));
-  const htmlString = htmlStringArray.join("");
-
-  parentElement.insertAdjacentHTML(position, htmlString);
+  const htmlString = list.map(templateFn);
+  parentElement.insertAdjacentHTML(position, htmlString.join(""));
 }
