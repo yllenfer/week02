@@ -5,5 +5,5 @@ const productId = getParam("product");
 productDetails(productId);
 
 function pr(number) {
-    return number * number;
-  }
+  return number * number;
+}
