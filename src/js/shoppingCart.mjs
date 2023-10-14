@@ -1,14 +1,9 @@
-import { getLocalStorage } from "./utils.mjs";
-import { loadHeaderFooter } from "./utils.mjs";
-import shoppingCart from "./shoppingCart.mjs";
+import { getLocalStorage, renderListWithTemplate } from "./utils.mjs";
 
-loadHeaderFooter();
-shoppingCart();
-
-function renderCartContents() {
+export default function ShoppingCart() {
   const cartItems = getLocalStorage("so-cart");
-  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
-  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  const outputEl = document.querySelector(".product-list");
+  renderListWithTemplate(cartItemTemplate, outputEl, cartItems);
 }
 
 function cartItemTemplate(item) {
@@ -29,5 +24,3 @@ function cartItemTemplate(item) {
 
   return newItem;
 }
-
-renderCartContents();

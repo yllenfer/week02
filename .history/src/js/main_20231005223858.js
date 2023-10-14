@@ -1,3 +1,3 @@
-import productList from "./productList.mjs"
+import productList from "./productList.mjs";
 
-console.log(productList)
+console.log(productList);
