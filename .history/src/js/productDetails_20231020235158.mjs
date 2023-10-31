@@ -9,7 +9,6 @@ export default async function productDetails(productId) {
   // once we have the product details we can render out the HTML
   renderProductDetails();
   // once the HTML is rendered we can add a listener to Add to Cart button
-  //TODO: I changed here
   document.getElementById("addToCart").addEventListener("click", addToCartHandler);
 }
 
