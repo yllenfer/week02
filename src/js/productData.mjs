@@ -13,11 +13,13 @@ function convertToJson(res) {
 //     .then((data) => data);
 // }
 
-async function getData(category) {
+
+export async function getData(category) {
   const response = await fetch(baseURL + `products/search/${category}`);
   const data = await convertToJson(response);
   return data.Result;
 }
+
 
 export async function findProductById(id) {
   const products = await getData();
