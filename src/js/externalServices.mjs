@@ -1,3 +1,5 @@
+const baseURL = import.meta.env.VITE_SERVER_URL
+
 function convertToJson(res) {
   if (res.ok) {
     return res.json();
@@ -27,3 +29,4 @@ export async function checkout(payload) {
   };
   return await fetch(baseURL + "checkout/", options).then(convertToJson);
 }
+
