@@ -30,3 +30,11 @@ export async function checkout(payload) {
   return await fetch(baseURL + "checkout/", options).then(convertToJson);
 }
 
+export async function getData(category) {
+  const response = await fetch(baseURL + `products/search/${category}`);
+  const data = await convertToJson(response);
+  return data.Result;
+}
+
+
+
