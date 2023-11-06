@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -52,14 +51,30 @@ function addProductToCart(product) {
     addProductToCart(product);
     showSuccessMessage();
   }
-
-
-
+  function showSuccessMessage() {
+    const successMessage = document.createElement("div");
+    successMessage.textContent = "Product added to the cart!";
+    successMessage.classList.add("success-message");
   
-  // add listener to Add to Cart button
-  // async function addToCartHandler(e) {
-  //   const product = await findProductById(e.target.dataset.id);
-  //   addProductToCart(product);
-  //   showSuccessMessage();
-  // }
-
+    // Create a container for success messages (if it doesn't exist)
+    let messageContainer = document.querySelector(".success-message-container");
+    if (!messageContainer) {
+      messageContainer = document.createElement("div");
+      messageContainer.classList.add("success-message-container");
+      document.body.appendChild(messageContainer);
+    }
+  
+  
+    messageContainer.appendChild(successMessage);
+  
+    setTimeout(() => {
+      successMessage.remove();
+    }, 3000);
+  }
+  
+  // add to cart button event handler
+  async function addToCartHandler(e) {
+    const product = await findProductById(e.target.dataset.id);
+    addProductToCart(product);
+    showSuccessMessage();
+  }

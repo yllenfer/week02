@@ -289,6 +289,6 @@ footer {
 
 /* Animate the cart logo */
 .cart-logo-container.animate-cart {
-  transform: scale(1); 
-  opacity: 1; 
+  transform: scale(1); /* Scale it up to 1 (original size) */
+  opacity: 1; /* Make it visible */
 }

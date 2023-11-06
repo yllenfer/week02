@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -53,7 +52,27 @@ function addProductToCart(product) {
     showSuccessMessage();
   }
 
-
+  function showSuccessMessage() {
+    const successMessage = document.createElement("div");
+    successMessage.textContent = "Product added to the cart!";
+    successMessage.classList.add("success-message");
+  
+    // Create a container for success messages (if it doesn't exist)
+    let messageContainer = document.querySelector(".success-message-container");
+    if (!messageContainer) {
+      messageContainer = document.createElement("div");
+      messageContainer.classList.add("success-message-container");
+      document.body.appendChild(messageContainer);
+    }
+  
+    // Add the success message to the container
+    messageContainer.appendChild(successMessage);
+  
+    setTimeout(() => {
+      successMessage.remove();
+    }, 3000); // Display for 3 seconds (adjust duration as needed)
+  }
+  
 
   
   // add listener to Add to Cart button

@@ -274,21 +274,20 @@ footer {
   visibility: hidden;
 }
 
-/* Cart logo container */
-.cart-logo-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform: scale(0); 
-  opacity: 0; 
-  z-index: 999; 
-}
-
-/* Animate the cart logo */
-.cart-logo-container.animate-cart {
-  transform: scale(1); 
-  opacity: 1; 
+/* Define the animation keyframes */
+@keyframes cart-animation {
+  0% {
+    transform: scale(1); /* Initial size */
+    opacity: 0; /* Initial opacity */
+    visibility: visible;
+  }
+  50% {
+    transform: scale(1.2); /* Scale up during the animation */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1); /* Return to the original size */
+    opacity: 0; /* Fade out at the end of the animation */
+    visibility: hidden;
+  }
 }

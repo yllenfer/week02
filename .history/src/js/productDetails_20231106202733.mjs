@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -13,8 +12,6 @@ export default async function productDetails(productId) {
   //TODO: I changed here
   document.getElementById("addToCart").addEventListener("click", addToCartHandler);
 }
-
-
 
 function renderProductDetails() {
   document.querySelector("#productName").innerText = product.Brand.Name;
@@ -50,16 +47,34 @@ function addProductToCart(product) {
   async function addToCartHandler(e) {
     const product = await findProductById(e.target.dataset.id);
     addProductToCart(product);
-    showSuccessMessage();
   }
-
-
-
   
   // add listener to Add to Cart button
-  // async function addToCartHandler(e) {
-  //   const product = await findProductById(e.target.dataset.id);
-  //   addProductToCart(product);
-  //   showSuccessMessage();
-  // }
+  document
+    .getElementById("addToCart")
+    .addEventListener("click", addToCartHandler);
 
+
+// Function to display a success message
+function showSuccessMessage() {
+  const successMessage = document.createElement("div");
+  successMessage.textContent = "Product added to the cart!";
+  successMessage.classList.add("success-message");
+  document.body.appendChild(successMessage);
+
+  setTimeout(() => {
+    successMessage.remove();
+  }, 3000); // Display for 3 seconds (adjust duration as needed)
+}
+
+// add to cart button event handler
+async function addToCartHandler(e) {
+  const product = await findProductById(e.target.dataset.id);
+  addProductToCart(product);
+
+  // Show a success message
+  showSuccessMessage();
+}
+
+// add listener to Add to Cart button
+document.getElementById("addToCart").addEventListener("click", addToCartHandler);

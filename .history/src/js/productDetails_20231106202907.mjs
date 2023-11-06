@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -50,16 +49,12 @@ function addProductToCart(product) {
   async function addToCartHandler(e) {
     const product = await findProductById(e.target.dataset.id);
     addProductToCart(product);
-    showSuccessMessage();
+    sbo
   }
-
-
-
   
   // add listener to Add to Cart button
-  // async function addToCartHandler(e) {
-  //   const product = await findProductById(e.target.dataset.id);
-  //   addProductToCart(product);
-  //   showSuccessMessage();
-  // }
+  document
+    .getElementById("addToCart")
+    .addEventListener("click", addToCartHandler);
+
 

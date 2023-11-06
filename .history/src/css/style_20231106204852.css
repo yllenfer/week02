@@ -282,13 +282,7 @@ footer {
   width: 100px;
   height: 100px;
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform: scale(0); 
-  opacity: 0; 
-  z-index: 999; 
-}
-
-/* Animate the cart logo */
-.cart-logo-container.animate-cart {
-  transform: scale(1); 
-  opacity: 1; 
+  transform: scale(0); /* Initially scale it down to 0 */
+  opacity: 0; /* Initially hide it */
+  z-index: 999; /* Ensure it's above other content */
 }

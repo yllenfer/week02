@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -53,7 +52,24 @@ function addProductToCart(product) {
     showSuccessMessage();
   }
 
+// In your addToCartHandler function
+function showSuccessMessage() {
+  const successMessage = document.createElement("div");
+  successMessage.textContent = "Product added to the cart!";
+  successMessage.classList.add("success-message");
 
+  // Add a class to the cart logo container to trigger the animation
+  const cartLogoContainer = document.querySelector(".cart-logo-container");
+  cartLogoContainer.classList.add("animate-cart");
+
+  // ... rest of your code
+
+  setTimeout(() => {
+    successMessage.remove();
+    // Remove the animation class to reset the logo
+    cartLogoContainer.classList.remove("animate-cart");
+  }, 3000); // Display for 3 seconds (adjust duration as needed)
+}
 
   
   // add listener to Add to Cart button
