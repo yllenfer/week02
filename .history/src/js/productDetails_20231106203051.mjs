@@ -1,6 +1,5 @@
 import { findProductById } from "./externalServices.mjs";
 import { setLocalStorage, getLocalStorage } from "./utils.mjs";
-import { showSuccessMessage } from "./utils.mjs";
 
 let product = {};
 
@@ -13,6 +12,11 @@ export default async function productDetails(productId) {
   //TODO: I changed here
   document.getElementById("addToCart").addEventListener("click", addToCartHandler);
 }
+
+// add listener to Add to Cart button
+document
+.getElementById("addToCart")
+.addEventListener("click", addToCartHandler);
 
 
 
@@ -53,13 +57,17 @@ function addProductToCart(product) {
     showSuccessMessage();
   }
 
-
-
+  function showSuccessMessage() {
+    const successMessage = document.createElement("div");
+    successMessage.textContent = "Product added to the cart!";
+    successMessage.classList.add("success-message");
+    document.body.appendChild(successMessage);
   
-  // add listener to Add to Cart button
-  // async function addToCartHandler(e) {
-  //   const product = await findProductById(e.target.dataset.id);
-  //   addProductToCart(product);
-  //   showSuccessMessage();
-  // }
+    setTimeout(() => {
+      successMessage.remove();
+    }, 3000); // Display for 3 seconds (adjust duration as needed)
+  }
+  
+  
+  
 

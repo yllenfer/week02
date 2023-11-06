@@ -87,27 +87,6 @@ function loadTemplate(path) {
 }
 
 
-// In your addToCartHandler function
-export function showSuccessMessage() {
-  const successMessage = document.createElement("div");
-  successMessage.textContent = "Product added to the cart";
-  successMessage.classList.add("success-message");
-
-  // Add a class to the cart logo container to trigger the animation
-  const cartLogoContainer = document.querySelector(".cart-logo-container");
-  cartLogoContainer.classList.add("animate-cart");
-
-  // Append the success message to the body
-  document.body.appendChild(successMessage);
-
-  setTimeout(() => {
-    successMessage.remove();
-    // Remove the animation class to reset the logo
-    cartLogoContainer.classList.remove("animate-cart");
-  }, 3000); // Display for 3 seconds (adjust duration as needed)
-}
-
-
 
 
 export async function loadHeaderFooter() {

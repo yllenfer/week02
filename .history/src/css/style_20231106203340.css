@@ -254,41 +254,10 @@ footer {
   z-index: 999; 
 }
 
-
+/* Style the success message */
 .success-message {
   background-color: #4CAF50;
   color: white;
   padding: 10px;
   border-radius: 5px;
-}
-
-/* Style the cart logo container */
-.cart-logo {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  animation: cart-animation 0.3s ease-in-out;
-  animation-fill-mode: both;
-  visibility: hidden;
-}
-
-/* Cart logo container */
-.cart-logo-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  transform: scale(0); 
-  opacity: 0; 
-  z-index: 999; 
-}
-
-/* Animate the cart logo */
-.cart-logo-container.animate-cart {
-  transform: scale(1); 
-  opacity: 1; 
 }

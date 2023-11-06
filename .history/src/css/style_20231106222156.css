@@ -290,5 +290,5 @@ footer {
 /* Animate the cart logo */
 .cart-logo-container.animate-cart {
   transform: scale(1); 
-  opacity: 1; 
+  opacity: 1; /* Make it visible */
 }
