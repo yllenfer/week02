@@ -5,10 +5,12 @@ import jwt_decode from "jwt-decode";
 const tokenKey = "so-token";
 
 function isTokenValid(token) {
+  console.log("MADe it here")
   // check to make sure a token was actually passed in.
   if (token) {
     // decode the token
     const decoded = jwt_decode(token);
+    console.log("past jwt")
     // get the current date
     let currentDate = new Date();
     // JWT exp is in seconds, the time from our current date will be milliseconds.
